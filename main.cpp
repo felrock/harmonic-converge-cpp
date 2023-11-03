@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cstdint>
 
 #include "half.hpp"
 #include "bfloat16.h"
