@@ -18,7 +18,7 @@ int main(int argc, char** argv)
         }
         previous = current;
     }
-    std::cout << "float steps: " << steps << std::endl;
+    std::cout << "native float = [value: " << current << ", steps: " << steps << "]\n";
 
     steps = 1;
     half_float::half half_current{0.0};
@@ -33,7 +33,7 @@ int main(int argc, char** argv)
         }
         half_previous = half_current;
     }
-    std::cout << "half_float steps: " << steps << std::endl;
+    std::cout << "half precision float = [value: " << half_current << ", steps: " << steps << "]\n";
 
     steps = 1;
     biovault::bfloat16_t bf_current{0.0};
@@ -48,6 +48,22 @@ int main(int argc, char** argv)
         }
         bf_previous = bf_current;
     }
-    std::cout << "bf_float steps: " << steps << std::endl;
+    std::cout << "bfloat16 = [value: " << bf_current << ", steps: " << steps << "]\n";
+
+    std::cout << "trying double, it might take two weeks to converge, another option would be ctrl-c" << std::endl;
+    steps = 1;
+    double double_current{0.0};
+    double double_previous{0.0};
+    while (true)
+    {
+        double_current += 1.0 / steps;
+        steps++;
+        if (double_current == double_previous)
+        {
+            break;
+        }
+        double_previous = double_current;
+    }
+    std::cout << "double = [value: " << double_current << ", steps: " << steps << "]\n";
     return 0;
 }

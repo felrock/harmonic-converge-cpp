@@ -1,7 +1,5 @@
 ## How fast does the harmonic series converge
 
-Software inspired by A blog post by  Nick Higham
-
 I found this really interesting blog post by Nick Higham when I was googling about the difference
 between binary fp16 and bfloat16. So I made a cpp code example to test it locally.
 
